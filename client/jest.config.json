@@ -1,0 +1,18 @@
+{
+  "setupFiles": [
+    "<rootDir>/jest/setup.js"
+  ],
+  "moduleDirectories": [
+    "node_modules",
+    "<rootDir>/src"
+  ],
+  "testEnvironment": "jsdom",
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.css$": "<rootDir>/jest/cssTransform.js",
+    "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/jest/fileTransform.js"
+  },
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+}

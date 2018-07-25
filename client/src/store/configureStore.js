@@ -1,6 +1,5 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import counterReducer from 'store/reducers/counter';
 
 const composeEnhancers = (
   /* eslint-disable no-underscore-dangle */
@@ -9,9 +8,7 @@ const composeEnhancers = (
     : null || compose
 );
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-});
+const rootReducer = combineReducers({});
 
 const store = createStore(
   rootReducer,

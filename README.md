@@ -6,3 +6,7 @@ Link how to run database on Mac OS:
 <br />
 Link to Robot 3T:
 https://robomongo.org/
+
+<br />
+Nuget packages:
+https://www.nuget.org/packages/MongoDB.Driver/

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no, user-scalable=no">
+
+  <title>
+    <%= htmlWebpackPlugin.options.title || 'Application name'%>
+  </title>
+
+  <meta name="description" content="<%= htmlWebpackPlugin.options.description || 'Application description' %>">
+
+  <noscript>You have to enable Javascript if you want to use this app.</noscript>
+
+  <% if (htmlWebpackPlugin.options.applicationName) { %>
+    <meta name="application-name" content="<%= htmlWebpackPlugin.options.applicationName %>">
+  <% } %>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+</html>

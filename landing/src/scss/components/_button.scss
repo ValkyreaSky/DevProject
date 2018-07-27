@@ -1,0 +1,33 @@
+.button {
+  text-decoration: none;
+  text-transform: lowercase;
+  border-radius: 10rem;
+  box-shadow: rgba($color-primary-two, 0.20) 0px 11px 32px 0px;
+  padding: 1.2rem 2.2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.4s;
+  background-color: $color-primary-two;
+  color: $color-secondary;
+  border: 0.1rem solid $color-primary-two;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+
+  &--primary {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &--secondary {
+    &:hover {
+      color: $color-primary-two;
+      background-color: $color-secondary;
+    }
+  }
+}

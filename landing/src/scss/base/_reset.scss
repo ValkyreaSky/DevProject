@@ -1,0 +1,32 @@
+html {
+  font-size: px-to-percent(10px);
+  box-sizing: border-box;
+
+  @include respond('small') {
+    font-size: px-to-percent(9px);
+  }
+
+  @include respond('large') {
+    font-size: px-to-percent(13px);
+  }
+  
+  @include respond('huge') {
+    font-size: px-to-percent(17px);
+  }
+  
+  @include respond('extra') {
+    font-size: px-to-percent(24px);
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+img {
+  width: 100%;
+}

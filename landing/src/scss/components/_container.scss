@@ -1,0 +1,10 @@
+.container {
+  max-width: 114rem;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  // position: relative;
+
+  @include respond('small') {
+    padding: 0 2rem;
+  }
+}

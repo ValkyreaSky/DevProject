@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  align-items: center;
+
+  @include respond('small') {
+    flex-direction: column;
+  }
+
+  .col {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @include respond('small') {
+      width: auto;
+    }
+  }
+}

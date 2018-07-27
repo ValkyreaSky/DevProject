@@ -1,0 +1,7 @@
+@function px-to-percent($value, $context: 16px) {
+  @return percentage($value/$context);
+}
+
+@function px-to-em($value, $context: 16px) {
+  @return ($value/$context) * 1em;
+}

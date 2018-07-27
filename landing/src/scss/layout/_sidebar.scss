@@ -1,0 +1,39 @@
+.sidebar {
+  position: fixed;
+  z-index: 4;
+  background-color: $color-secondary;
+  border-right: 0.2rem solid $color-primary-two;
+  box-shadow: 1rem 0rem 2rem rgba(0, 0, 0, 0.24);
+  min-height: 100vh;
+  overflow-y: scroll;
+  bottom: 0;
+  top: 0;
+  width: 25rem;
+  display: block;
+  transform: translateX(-110%);
+  transition: all 0.3s;
+
+  &__open {
+    transform: translateX(0);
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__container {
+    padding: 2rem;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: initial;
+    text-transform: lowercase;
+  }
+}

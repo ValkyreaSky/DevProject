@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+  
+  &__logo {
+    width: 4rem;
+    margin-right: 0.9rem;
+  }
+
+  &__brand {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: lowercase;
+  }
+}

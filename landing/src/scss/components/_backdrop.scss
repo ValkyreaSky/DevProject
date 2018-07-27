@@ -1,0 +1,17 @@
+.backdrop {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.48);
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  transition: all 0.2s;
+
+  &__open {
+    display: block;
+  }
+}

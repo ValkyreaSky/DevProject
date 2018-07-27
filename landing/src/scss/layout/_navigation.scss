@@ -1,0 +1,98 @@
+.nav {
+  padding: 3rem 0;
+  position: absolute;
+  color: $color-secondary;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  @include respond('small') {
+    padding: 1.2rem 0;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond('small') {
+      justify-content: center;
+    }
+  }
+
+  &__button {
+    width: 3rem;
+    height: 3rem;
+    margin-right: auto;
+    display: none;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+
+    @include respond('small') {
+      display: block;
+    }
+
+    & span {
+      background-color: $color-secondary;
+      height: 0.2rem !important;
+      width: 100%;
+      display: block;
+      position: absolute;
+
+      &:nth-child(1) {
+        top: calc(0rem + 0.4rem);
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3) {
+        bottom: calc(0rem + 0.4rem);
+      }
+    }   
+  }
+
+  &__list {
+    list-style: none;
+
+    @include respond('small') {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 3rem;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    font-size: 1.4rem;
+    transition: all 0.4s;
+
+    &:hover {
+      color: lighten($color-tertiary-dark, 30%);
+    }
+  }
+
+  &__right-menu {
+    display: flex;
+    align-items: center;
+
+    @include respond('small') {
+      display: none;
+    }
+  }
+}

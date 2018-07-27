@@ -1,0 +1,42 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  user-select: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: $color-tertiary;
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4.5rem;
+  letter-spacing: 0.1rem;
+  text-transform: lowercase;
+  color: $color-tertiary-dark;
+}
+
+.subheading {
+  text-transform: lowercase;
+  font-size: 1.8rem;
+}
+
+.paragraph {
+  line-height: 3.5rem;
+}
+
+.caption {
+  color: $color-tertiary-light;
+  font-size: 1.2rem;
+}

@@ -1,0 +1,111 @@
+.hero {
+  min-height: 100vh;
+  background: url('../images/hero-background.svg');
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rem;
+  color: $color-secondary;
+
+  @include respond('small') {
+    text-align: center;
+  }
+
+  @include respond('smallest') {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  &__image {
+    max-width: 40rem;
+  }
+
+  &__title {
+    line-height: 1;
+    font-weight: 500;
+    font-size: 5rem;
+    margin-top: -4rem;
+
+    @include respond('smallest') {
+      margin-top: 0;
+      font-size: 3rem;
+    }
+
+    &--bold {
+      display: block;
+      font-weight: 700;
+    }
+  }
+}
+
+.feature-text {
+  max-width: 47rem;
+}
+
+.feature-image {
+  width: 40rem;
+
+  @include respond('small') {
+    width: 80%;
+  }
+}
+
+.testimonials {
+  // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(18,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%235660e2'/%3E%3Cstop offset='1' stop-color='%23d04479'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='15' height='15' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23ffffff' cx='7.5' cy='7.5' r='7.5'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.09'/%3E%3C/svg%3E");
+  background-image: linear-gradient(to bottom right, $color-primary-two, $color-primary-one);
+  height: 57rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__box {
+    max-width: 78rem;
+    background-color: $color-secondary;
+    border-radius: 1rem;
+    box-shadow: rgba(20, 23, 32, 0.47) 0px 19px 100px 0px;
+    position: relative;
+  }
+
+  &__row {
+    display: flex;
+    height: 100%;
+  } 
+
+  &__nav-left, &__nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    border-radius: 1rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(228, 228, 228);
+    }
+  }
+
+  &__quote {
+    padding: 6rem 2rem;
+    font-size: 2rem;
+    text-align: center;
+
+    @include respond('smaller') {
+      padding: 3rem 1rem 4rem 1rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__image {
+    width: 6rem;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%) translateY(50%);
+    border-radius: 50%;
+    bottom: 0;
+  }
+}

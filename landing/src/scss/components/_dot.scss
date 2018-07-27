@@ -1,0 +1,43 @@
+.dot {
+  background-color: $color-primary-two;
+  border-radius: 50%;
+  position: absolute;
+
+  &--first {
+    height: 90rem;
+    width: 90rem;
+    top: -23rem;
+    right: -75rem;
+
+    @include respond('small') {
+      right: -28rem;
+      top: 2rem;
+      height: 30rem;
+      width: 30rem;
+    }
+  }
+
+  &--second {
+    height: 30rem;
+    width: 30rem;
+    top: -22rem;
+    left: -22rem;
+
+    @include respond('small') {
+      left: -28rem;
+      top: -19rem;
+    }
+  }
+  
+  &--third {
+    height: 30rem;
+    width: 30rem;
+    top: 10rem;
+    left: -23rem;
+
+    @include respond('smallest') {
+      left: -25rem;
+      top: 8rem;
+    }
+  }
+}

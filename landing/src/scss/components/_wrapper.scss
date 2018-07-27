@@ -1,0 +1,8 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 81rem;
+
+  &--small {
+    max-width: 15rem;
+  }
+}

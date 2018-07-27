@@ -1,6 +1,14 @@
 {
   "name": "devproject",
   "scripts": {
+    "install:server": "npm install",
+    "install:landing": "npm install --prefix landing",
+    "install:client": "npm install --prefix client",
+    "install:all": "npm run install:server && npm run install:landing && npm run install:client",
+    "build:landing": "npm run build --prefix landing",
+    "build:client": "npm run build:prod --prefix client",
+    "build:all": "npm run build:landing && npm run build:client",
+    "heroku-postbuild": "npm run install:all && npm run build:all",
     "start": "node server/server.js"
   },
   "dependencies": {

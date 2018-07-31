@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'App';
 import registerServiceWorker from 'registerServiceWorker';
-import './style.scss';
+import 'bootstrap/dist/js/bootstrap';
+import 'styles/main.scss';
 
 // Hot Module Replacement
 if (process.env.NODE_ENV !== 'production' && module.hot) {

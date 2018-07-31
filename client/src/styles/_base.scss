@@ -1,0 +1,55 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.7px;
+  color: rgb(75, 80, 96);
+}
+
+/******************************
+  NAVBAR
+ *****************************/
+.navbar { 
+  border-bottom: 1px solid rgb(240, 242, 249);
+}
+
+.navbar-brand {
+  color: rgb(75, 80, 96) !important;
+  font-weight: 600;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: rgb(75, 80, 96) !important;
+  transition: color 0.2s;
+}
+
+.nav-link.active {
+  color: rgb(159, 159, 161) !important;
+}
+
+.nav-link:hover {
+  color: rgb(159, 159, 161) !important;
+}
+
+/******************************
+  LINKS
+ *****************************/
+a {
+  color: rgb(229, 33, 56);
+}
+
+a:hover {
+  color: rgb(201, 29, 49);
+  text-decoration: none;
+}
+
+/******************************
+  UTILS
+ *****************************/
+.c-pointer {
+  cursor: pointer;
+}

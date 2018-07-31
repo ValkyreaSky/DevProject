@@ -1,0 +1,72 @@
+.form-box {
+  position: relative;
+  margin-bottom: 40px !important;
+}
+
+.form-contro {
+  background-color: rgb(245, 246, 251);
+  border: none;
+  padding: 10px 15px;
+  color: rgb(75, 80, 96);
+  font-weight: 600;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+.form-contro:focus {
+  color: rgb(75, 80, 96);
+  font-weight: 600;
+}
+
+.form-contro::-webkit-input-placeholder {
+  color: rgb(181, 184, 196);
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.invalid-info {
+  font-weight: 700;
+  font-size: 10px;
+  padding: 1px 0px;
+  border-radius: 6px;
+  // background-color: rgb(243, 111, 126);
+  color: $color-primary;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.form-contro.is-invalid~.invalid-feedback {
+  display: inline;
+}
+
+.my-label {
+  font-size: 13px;
+  font-weight: 600;
+  padding-left: 15px;
+  transition: all 0.2s;
+}
+
+.label-show {
+  position: absolute;
+  top: -20px;
+  opacity: 1;
+}
+
+.label-hide {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+}
+
+select {
+  -webkit-appearance: none !important;
+  height: 44px !important;
+}
+
+select.notDirty {
+  color: rgb(181, 184, 196);
+  font-size: 13px;
+  line-height: 24px;
+}

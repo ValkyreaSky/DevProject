@@ -1,14 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const VENDOR_LIBS = [
-  'react', 'react-dom', 'react-router-dom', 'react-redux', 'redux', 'redux-thunk',
+  'react', 'react-dom', 'react-router-dom', 'react-redux', 'redux', 'redux-thunk', 'redux-form', 'jquery',
 ];
 
 module.exports = (env, argv) => {
@@ -20,7 +19,7 @@ module.exports = (env, argv) => {
   return ({
     // Root files of application (files from which the Webpack will start reading code).
     // Thanks to `babel-polyfill` new built-ins like `Promise`, `Array.from`,
-    // `Object.assign` or `Array.prototype.includes` will be polyfilled.
+    // `Object.assign` or `Array.prototype.includes` will be polyfilled..
     entry: {
       bundle: ['babel-polyfill', './src/index.jsx'],
       // All vendors (like `React`, `Redux`,) can go to separate bundle file because we update
@@ -95,7 +94,7 @@ module.exports = (env, argv) => {
               test: /\.s|css$/,
               exclude: /node_modules/,
               use: [
-                // If We are in production mode MiniCssExtractPlugin grabs the result CSS and
+                // If we are in production mode MiniCssExtractPlugin grabs the result CSS and
                 // puts it into separate file in build process instead of injecting <style> tags.
                 // This won't work without `new MiniCssExtractPlugin()` in `plugins`.
                 isProduction
@@ -117,21 +116,21 @@ module.exports = (env, argv) => {
                     // This option configures how many loaders before css-loader should be applied
                     // to imported resources (1 => postcss-loader; 2 => postcss-loader,sass-loader).
                     importLoaders: 2,
+                    minimize: isProduction,
                     sourceMap: true,
                   },
                 },
                 // PostCSS configuration is located in postcss.config.js file.
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    sourceMap: true,
-                  },
-                },
+                'postcss-loader',
                 // This loader uses node-sass to compile SASS code.
                 {
                   loader: 'sass-loader',
                   options: {
-                    sourceMap: true,
+                    // Content of this files will be available in every SASS file.
+                    data: '@import "variables"; @import "mixins";',
+                    includePaths: [
+                      path.join(__dirname, 'src', 'styles'),
+                    ],
                   },
                 },
               ],
@@ -159,11 +158,11 @@ module.exports = (env, argv) => {
         inject: true,
         template: './src/templates/index.html',
         // <title>
-        title: 'Application name',
+        title: 'Devplace | Social network for developers',
         // <meta name="description">
-        description: 'Application description',
+        description: 'Create an account or log into Devplace. Connect with co-workers and other people you know. Create portfolio, share posts and get updates.',
         // <meta name="application-name">
-        applicationName: 'Application name',
+        applicationName: 'Devplace',
         favicon: './src/assets/icons/favicon.png',
         minify: {
           removeComments: isProduction,
@@ -182,14 +181,6 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: 'assets/css/styles.[contenthash:8].css',
       }),
-      // Generate sourcemaps for external CSS files.
-      new OptimizeCssAssetsPlugin({
-        cssProcessorOptions: {
-          map: {
-            inline: false, annotation: true,
-          },
-        },
-      }),
       // Generate Service Worker (`service-worker.js` by default).
       new WorkboxWebpackPlugin.GenerateSW({
         // Ability to publish a new service worker and control a web page as soon as possible.
@@ -198,7 +189,7 @@ module.exports = (env, argv) => {
         clientsClaim: true,
         skipWaiting: true,
         // Name of cache.
-        cacheId: 'Application Name',
+        cacheId: 'Devplace',
         runtimeCaching: [
           {
             urlPattern: /.*/,
@@ -212,9 +203,9 @@ module.exports = (env, argv) => {
       }),
       // Generate `manifest.json` file.
       new WebpackPwaManifest({
-        name: 'Application name',
-        short_name: 'App',
-        description: 'Application description',
+        name: 'Devplace',
+        short_name: 'Devplace',
+        description: 'Social network for developers.',
         display: 'standalone',
         start_url: '/',
         orientation: 'portrait',
@@ -260,19 +251,17 @@ module.exports = (env, argv) => {
       hot: true,
       // Enable HTTPS.
       // https: true,
-      // Proxying URLs can be useful when you have a separate API backend development server
-      // and you want to send API requests on the same domain.
-      // proxy: {
-      //   '/api/*': {
-      //     target: 'http://localhost:5000',
-      //   },
-      // },
       // In console You usually want to see only warnings and errors with its details.
       stats: {
         all: false,
         warnings: true,
         errors: true,
         errorDetails: true,
+      },
+      proxy: {
+        '/api/*': {
+          target: 'http://localhost:5000',
+        },
       },
     },
     // Enable optimization of our output files: bundle.js and vendors.js.

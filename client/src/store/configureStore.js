@@ -1,5 +1,9 @@
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import authReducer from 'store/reducers/auth';
+import profileReducer from 'store/reducers/profile';
+import postReducer from 'store/reducers/post';
 
 const composeEnhancers = (
   /* eslint-disable no-underscore-dangle */
@@ -8,7 +12,12 @@ const composeEnhancers = (
     : null || compose
 );
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  auth: authReducer,
+  form: formReducer,
+  profile: profileReducer,
+  post: postReducer,
+});
 
 const store = createStore(
   rootReducer,

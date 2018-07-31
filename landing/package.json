@@ -1,8 +1,10 @@
 {
   "name": "devplace-landing",
+  "author": "appalaszynski",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "gulp dev",
-    "build": "rimraf ./dist && gulp build"
+    "build": "npm run clean && gulp build"
   },
   "devDependencies": {
     "autoprefixer": "^9.0.1",

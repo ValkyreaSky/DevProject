@@ -1,17 +1,37 @@
 {
-  "name": "devproject",
+  "name": "devplace-server",
+  "author": "appalaszynski",
   "scripts": {
     "install:server": "npm install",
     "install:landing": "npm install --prefix landing",
     "install:client": "npm install --prefix client",
-    "install:all": "npm run install:server && npm run install:landing && npm run install:client",
+    "install:all": "npm run install:server && npm run install:client && npm run install:landing",
+    "dev:server": "nodemon server/server.js",
+    "dev:landing": "npm run dev --prefix landing",
+    "dev:client": "npm run dev --prefix client",
+    "dev:all": "concurrently \"npm run dev:server\" \"npm run dev:client\" -n SERVER,CLIENT -c bold.yellow,bold.cyan",
     "build:landing": "npm run build --prefix landing",
-    "build:client": "npm run build:prod --prefix client",
-    "build:all": "npm run build:landing && npm run build:client",
-    "heroku-postbuild": "npm run install:all && npm run build:all",
+    "build:client": "npm run build --prefix client",
+    "heroku-postbuild": "npm run install:landing && npm run install:client && npm run build:landing && npm run build:client",
     "start": "node server/server.js"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "nodemon": "^1.18.3"
   }
 }
